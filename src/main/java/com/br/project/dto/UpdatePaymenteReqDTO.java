@@ -6,10 +6,10 @@ import lombok.Data;
 
 @Data
 @Component
-public class PaymenteReqDTO {
+public class UpdatePaymenteReqDTO {
 	
+	private Integer id;
 	private String type;
 	private String paymente;
-	
 
 }

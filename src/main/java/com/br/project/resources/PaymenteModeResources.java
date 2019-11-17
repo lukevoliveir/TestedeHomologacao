@@ -10,15 +10,21 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.br.project.business.BussinessPaymente;
-import com.br.project.dto.PaymenteReqDTO;
-import com.br.project.dto.PaymenteResDTO;
+import com.br.project.business.BusinessPaymente;
+import com.br.project.dto.DeletePayementeResDTO;
+import com.br.project.dto.DeletePaymenteReqDTO;
+import com.br.project.dto.PaymenteRegisterReqDTO;
+import com.br.project.dto.PaymenteRegisterResDTO;
+import com.br.project.dto.UpdatePaymenteReqDTO;
+import com.br.project.dto.UpdatePaymenteResDTO;
 import com.br.project.integrationobjects.TransferObject;
 
 import io.swagger.annotations.Api;
@@ -43,25 +49,62 @@ public class PaymenteModeResources {
 	private static final Logger LOGGER = LoggerFactory.getLogger(PaymenteModeResources.class);
 	
 	@Autowired
-	private TransferObject<PaymenteResDTO> transferObject;
+	private TransferObject<PaymenteRegisterResDTO> transferObject;
 	
-//	@Autowired
-//	private BussinessPaymente bussiness;
-//	
+	@Autowired
+	private TransferObject<UpdatePaymenteResDTO> transferObjectUpdate; 
+	
+	@Autowired
+	private TransferObject<DeletePayementeResDTO> tranferObjecteDelete;
+	
+	@Autowired
+	private BusinessPaymente bussiness;
+	
 	
 	@ApiOperation(value = "MS-01 Serviço disponivel para cadastro de pagamento", notes = "Cadastro de pagamento")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Retorna apenas o codigo http pertinente a solicitação", response = PaymenteModeResources.class) })
 	@ResponseBody
 	@PostMapping(value = "/paymente-register", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<TransferObject<PaymenteResDTO>> formOfPaymente(@RequestBody PaymenteReqDTO req){
+	public ResponseEntity<TransferObject<PaymenteRegisterResDTO>> formOfPaymente(@RequestBody PaymenteRegisterReqDTO req){
 		
-//		PaymenteResDTO res = bussiness.formOfPaymente(req);
+		PaymenteRegisterResDTO res = bussiness.formOfPaymente(req);
 		
-//		TransferObject<PaymenteResDTO> entty = transferObject.getTransferObject(transferObject, Arrays.asList(res), HttpStatus.CREATED);
+		TransferObject<PaymenteRegisterResDTO> entity = transferObject.getTransferObject(transferObject, Arrays.asList(res), HttpStatus.CREATED);
 		
-		return null;
+		return ResponseEntity.status(HttpStatus.CREATED).body(entity);
 		
 	}
+	
+	@ApiOperation(value = "MS-02 Serviço disponivel para atualizar forma de pagameto", notes = "Atualizar pagamento")
+	@ApiResponses(value = { @ApiResponse (code = 201, message = "Retorna apenas o codigo http pertinente a solicitação", response = PaymenteModeResources.class)})
+	@ResponseBody
+	@PatchMapping(value = "/update-register", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<TransferObject<UpdatePaymenteResDTO>> updateFormPaymente(@RequestBody UpdatePaymenteReqDTO req){
+		
+		UpdatePaymenteResDTO res = bussiness.updateFormPaymente(req);
+		
+		TransferObject<UpdatePaymenteResDTO> entity = transferObjectUpdate.getTransferObject(transferObjectUpdate, Arrays.asList(res), HttpStatus.CREATED);
+		
+		
+		return ResponseEntity.status(HttpStatus.CREATED).body(entity);
+	}
+	
+	
+	@ApiOperation(value = "MS-03 Serviço disponivel para deletar forma de pagameto", notes = "Deletar o pagamento")
+	@ApiResponses(value = { @ApiResponse (code = 201, message = "Retorna apenas o codigo http pertinente a solicitação", response = PaymenteModeResources.class)})
+	@ResponseBody
+	@DeleteMapping(value = "/delete-registe", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<TransferObject<DeletePayementeResDTO>> deleteFormPaymente(@RequestBody DeletePaymenteReqDTO req){
+		
+		
+		DeletePayementeResDTO res = bussiness.deleteFormPaymente(req);
+		
+		TransferObject<DeletePayementeResDTO> entity = tranferObjecteDelete.getTransferObject(tranferObjecteDelete, Arrays.asList(res), HttpStatus.CREATED);
+		
+		
+		return ResponseEntity.status(HttpStatus.CREATED).body(entity);
+	}
+	
 
 
 	
