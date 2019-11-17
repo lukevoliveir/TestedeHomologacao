@@ -58,7 +58,7 @@ public class PaymenteModeResources {
 	private TransferObject<DeletePayementeResDTO> tranferObjecteDelete;
 	
 	@Autowired
-	private BusinessPaymente bussiness;
+	private BusinessPaymente business;
 	
 	
 	@ApiOperation(value = "MS-01 Serviço disponivel para cadastro de pagamento", notes = "Cadastro de pagamento")
@@ -67,7 +67,7 @@ public class PaymenteModeResources {
 	@PostMapping(value = "/paymente-register", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<TransferObject<PaymenteRegisterResDTO>> formOfPaymente(@RequestBody PaymenteRegisterReqDTO req){
 		
-		PaymenteRegisterResDTO res = bussiness.formOfPaymente(req);
+		PaymenteRegisterResDTO res = business.formOfPaymente(req);
 		
 		TransferObject<PaymenteRegisterResDTO> entity = transferObject.getTransferObject(transferObject, Arrays.asList(res), HttpStatus.CREATED);
 		
@@ -81,7 +81,7 @@ public class PaymenteModeResources {
 	@PatchMapping(value = "/update-register", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<TransferObject<UpdatePaymenteResDTO>> updateFormPaymente(@RequestBody UpdatePaymenteReqDTO req){
 		
-		UpdatePaymenteResDTO res = bussiness.updateFormPaymente(req);
+		UpdatePaymenteResDTO res = business.updateFormPaymente(req);
 		
 		TransferObject<UpdatePaymenteResDTO> entity = transferObjectUpdate.getTransferObject(transferObjectUpdate, Arrays.asList(res), HttpStatus.CREATED);
 		
@@ -97,7 +97,7 @@ public class PaymenteModeResources {
 	public ResponseEntity<TransferObject<DeletePayementeResDTO>> deleteFormPaymente(@RequestBody DeletePaymenteReqDTO req){
 		
 		
-		DeletePayementeResDTO res = bussiness.deleteFormPaymente(req);
+		DeletePayementeResDTO res = business.deleteFormPaymente(req);
 		
 		TransferObject<DeletePayementeResDTO> entity = tranferObjecteDelete.getTransferObject(tranferObjecteDelete, Arrays.asList(res), HttpStatus.CREATED);
 		
