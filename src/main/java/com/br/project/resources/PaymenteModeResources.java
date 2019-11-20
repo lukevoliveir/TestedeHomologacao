@@ -83,10 +83,10 @@ public class PaymenteModeResources {
 		
 		UpdatePaymenteResDTO res = business.updateFormPaymente(req);
 		
-		TransferObject<UpdatePaymenteResDTO> entity = transferObjectUpdate.getTransferObject(transferObjectUpdate, Arrays.asList(res), HttpStatus.CREATED);
+		TransferObject<UpdatePaymenteResDTO> entity = transferObjectUpdate.getTransferObject(transferObjectUpdate, Arrays.asList(res), HttpStatus.UPGRADE_REQUIRED);
 		
 		
-		return ResponseEntity.status(HttpStatus.CREATED).body(entity);
+		return ResponseEntity.status(HttpStatus.UPGRADE_REQUIRED).body(entity);
 	}
 	
 	
@@ -99,10 +99,10 @@ public class PaymenteModeResources {
 		
 		DeletePayementeResDTO res = business.deleteFormPaymente(req);
 		
-		TransferObject<DeletePayementeResDTO> entity = tranferObjecteDelete.getTransferObject(tranferObjecteDelete, Arrays.asList(res), HttpStatus.CREATED);
+		TransferObject<DeletePayementeResDTO> entity = tranferObjecteDelete.getTransferObject(tranferObjecteDelete, Arrays.asList(res), HttpStatus.OK);
 		
 		
-		return ResponseEntity.status(HttpStatus.CREATED).body(entity);
+		return ResponseEntity.status(HttpStatus.OK).body(entity);
 	}
 	
 

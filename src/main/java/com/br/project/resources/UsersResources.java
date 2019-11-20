@@ -74,9 +74,9 @@ public class UsersResources {
 		
 		UpdateUserResDTO res = businessUser.updateOfUser(req);
 				
-		TransferObject<UpdateUserResDTO> entity = transferObjectUpdate.getTransferObject(transferObjectUpdate, Arrays.asList(res), HttpStatus.CREATED);
+		TransferObject<UpdateUserResDTO> entity = transferObjectUpdate.getTransferObject(transferObjectUpdate, Arrays.asList(res), HttpStatus.UPGRADE_REQUIRED);
 		
-		return ResponseEntity.status(HttpStatus.CREATED).body(entity);
+		return ResponseEntity.status(HttpStatus.UPGRADE_REQUIRED).body(entity);
 	}
 	
 	@ApiOperation(value = "MS-07 Serviço disponivel para deletar o cadastro de usuaruio", notes = "Deletar o pagamento")
@@ -87,9 +87,9 @@ public class UsersResources {
 		
 		DeleteUserResDTO res = businessUser.deleteOfUser(req);
 		
-		TransferObject<DeleteUserResDTO> entity = transferObjectDelete.getTransferObject(transferObjectDelete, Arrays.asList(res), HttpStatus.CREATED);
+		TransferObject<DeleteUserResDTO> entity = transferObjectDelete.getTransferObject(transferObjectDelete, Arrays.asList(res), HttpStatus.OK);
 		
-		return ResponseEntity.status(HttpStatus.CREATED).body(entity);
+		return ResponseEntity.status(HttpStatus.OK).body(entity);
 	}
 
 }
