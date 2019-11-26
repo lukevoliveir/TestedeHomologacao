@@ -15,19 +15,41 @@ public class BusinessProductsImpl implements BusinessProducts {
 
 	@Override
 	public CreateProductsResDTO formOfProducts(CreateProductsReqDTO req) {
-		// TODO Auto-generated method stub
-		return null;
+		CreateProductsResDTO res = new CreateProductsResDTO();
+		
+		res.setAmount(req.getAmount());
+		res.setId(req.getId());
+		res.setNameProducts(req.getTypeProducts());
+		res.setTypeProducts(req.getTypeProducts());
+		res.setValue(req.getValue());
+		
+		return res;
 	}
 
 	@Override
 	public UpdateProductsResDTO updateFormProducts(UpdateProductsReqDTO req) {
-		// TODO Auto-generated method stub
-		return null;
+		UpdateProductsResDTO res = new UpdateProductsResDTO();
+		
+		res.setAmount(req.getAmount());
+		res.setId(req.getId());
+		res.setNameProducts(req.getTypeProducts());
+		res.setTypeProducts(req.getTypeProducts());
+		res.setValue(req.getValue());
+		
+		return res;
 	}
 
 	@Override
 	public DeleteProductsResDTO deleteFormProducts(DeleteProductsReqDTO req) {
-		// TODO Auto-generated method stub
+		
+		DeleteProductsResDTO res = new DeleteProductsResDTO();
+		
+		res.setAmount(req.getAmount());
+		res.setId(req.getId());
+		res.setNameProducts(req.getTypeProducts());
+		res.setTypeProducts(req.getTypeProducts());
+		res.setValue(req.getValue());
+		
 		return null;
 	}
 

@@ -54,7 +54,7 @@ public class ProductsResources {
 	private BusinessProducts business;
 	
 	
-	@ApiOperation(value = "MS-08 Serviço disponivel para cadastro de produtos", notes = "Cadastro de produtos")
+	@ApiOperation(value = "MS-11 Serviço disponivel para cadastro de produtos", notes = "Cadastro de produtos")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Retorna apenas o codigo http pertinente a solicitação", response = PaymenteModeResources.class) })
 	@ResponseBody
 	@PostMapping(value = "/paymente-register", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -68,7 +68,7 @@ public class ProductsResources {
 		
 	}
 	
-	@ApiOperation(value = "MS-09 Serviço disponivel para atualizar tipo de produtos", notes = "Atualizar produtos")
+	@ApiOperation(value = "MS-12 Serviço disponivel para atualizar tipo de produtos", notes = "Atualizar produtos")
 	@ApiResponses(value = { @ApiResponse (code = 201, message = "Retorna apenas o codigo http pertinente a solicitação", response = PaymenteModeResources.class)})
 	@ResponseBody
 	@PatchMapping(value = "/update-register", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -82,7 +82,7 @@ public class ProductsResources {
 		
 	}
 	
-	@ApiOperation(value = "MS-10 Serviço disponivel para deletar produtos", notes = "Deletar o produtos")
+	@ApiOperation(value = "MS-13 Serviço disponivel para deletar produtos", notes = "Deletar o produtos")
 	@ApiResponses(value = { @ApiResponse (code = 201, message = "Retorna apenas o codigo http pertinente a solicitação", response = PaymenteModeResources.class)})
 	@ResponseBody
 	@DeleteMapping(value = "/delete-registe", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

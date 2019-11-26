@@ -15,19 +15,35 @@ public class BusinessPaymenteImpl implements BusinessPaymente{
 
 	@Override
 	public PaymenteRegisterResDTO formOfPaymente(PaymenteRegisterReqDTO req) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		PaymenteRegisterResDTO res = new PaymenteRegisterResDTO();
+		
+		res.setId(req.getId());
+		res.setPaymente(req.getPaymente());
+		res.setType(req.getType());
+		
+		return res;
 	}
 
 	@Override
 	public UpdatePaymenteResDTO updateFormPaymente(UpdatePaymenteReqDTO req) {
-		// TODO Auto-generated method stub
-		return null;
+		UpdatePaymenteResDTO res = new UpdatePaymenteResDTO();
+		
+		res.setId(req.getId());
+		res.setPaymente(req.getPaymente());
+		res.setType(req.getType());
+		
+		return res;
 	}
 
 	@Override
 	public DeletePayementeResDTO deleteFormPaymente(DeletePaymenteReqDTO req) {
-		// TODO Auto-generated method stub
+		DeletePayementeResDTO res = new DeletePayementeResDTO();
+		
+		res.setId(req.getId());
+		res.setPaymente(req.getPaymente());
+		res.setType(req.getType());
+		
 		return null;
 	}
 	

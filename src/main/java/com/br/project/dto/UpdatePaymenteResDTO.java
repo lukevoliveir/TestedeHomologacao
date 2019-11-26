@@ -10,5 +10,6 @@ public class UpdatePaymenteResDTO {
 	
 	private Integer id;
 	private String type;
+	private String paymente;
 	
 }

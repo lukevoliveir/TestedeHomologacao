@@ -10,6 +10,7 @@ public class DeletePayementeResDTO {
 	
 	private Integer id;
 	private String type;
-	private String paymete;
+	private String paymente;
+	
 	
 }

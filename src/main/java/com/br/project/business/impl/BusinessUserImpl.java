@@ -15,20 +15,46 @@ public class BusinessUserImpl implements BusinessUser {
 
 	@Override
 	public CreateUserResDTO formOfUser(CreateUserReqDTO req) {
-		// TODO Auto-generated method stub
-		return null;
+		CreateUserResDTO res = new CreateUserResDTO();
+		
+		res.setIdUser(req.getIdUser());
+		res.setEmail(req.getEmail());
+		res.setCpf(req.getCpf());
+		res.setName(req.getName());
+		res.setPhone(req.getPhone());
+		res.setTypeUser(req.getTypeUser());
+		
+		return res;
 	}
 
 	@Override
 	public UpdateUserResDTO updateOfUser(UpdateUserReqDTO req) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		UpdateUserResDTO res = new UpdateUserResDTO();
+		
+		res.setIdUser(req.getIdUser());
+		res.setEmail(req.getEmail());
+		res.setCpf(req.getCpf());
+		res.setName(req.getName());
+		res.setPhone(req.getPhone());
+		res.setTypeUser(req.getTypeUser());
+		
+		return res;
 	}
 
 	@Override
 	public DeleteUserResDTO deleteOfUser(DeleteUserReqDTO req) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		DeleteUserResDTO res = new DeleteUserResDTO();
+		
+		res.setIdUser(req.getIdUser());
+		res.setEmail(req.getEmail());
+		res.setCpf(req.getCpf());
+		res.setName(req.getName());
+		res.setPhone(req.getPhone());
+		res.setTypeUser(req.getTypeUser());
+		
+		return res;
 	}
 
 }

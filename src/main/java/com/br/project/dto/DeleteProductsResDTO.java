@@ -11,7 +11,7 @@ public class DeleteProductsResDTO {
 	private Integer id;
 	private String nameProducts;
 	private String typeProducts;
-	private String qtd;
-	private String much;
+	private String amount;
+	private String value;
 
 }
